@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/anne02550/company-directory/issues"
   },
-  "homepage": "https://github.com/anne02550/company-directory#readme"
+  "homepage": "https://github.com/anne02550/company-directory#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

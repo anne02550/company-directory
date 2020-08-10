@@ -1,0 +1,20 @@
+{
+  "name": "company-directory",
+  "version": "1.0.0",
+  "description": "An internal company directory application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anne02550/company-directory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anne02550/company-directory/issues"
+  },
+  "homepage": "https://github.com/anne02550/company-directory#readme"
+}

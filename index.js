@@ -10,11 +10,11 @@ app.engine('handlebars', handlebars())
 app.set('view engine', 'handlebars')
 
 app.get('/login', (req, res) => {
-  res.render('login')
+  res.render('login', {pageName: "login"})
 })
 
 app.get('/results', (req, res) => {
-    res.render('results')
+    res.render('results', {pageName: "results"})
   })
 
 app.listen(port, () => {

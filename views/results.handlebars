@@ -1,70 +1,54 @@
 <div class="container">
- {{!-- form trial start --}}
-
-<div class="row" style="margin-top:20px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    <form role="form">
-        <fieldset>
-            <h2>Please choose:</h2>
-
-            {{!-- rainbow stripe --}}
-            <hr class="colorgraph">
-            
-              <button type="button" class="btn" data-color="info">Add Employee</button>
-               <h2>Find Employee</h2>
-               <div class="btn-group">
-                 <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ <div class="row" style="margin-top:20px">
+   <button type="button" id="add-employee" class="btn btn-primary" data-color="info">Add Employee</button>
+		<form role="form" class="form-inline">
+		
+		   <hr class="colorgraph">
+		    <label for="label" class="mr-sm-4">Find Employee:</label>  
+				
+		    <div class="form-group">
+                <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Branch
-                 </button>
-                   <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Choose brand</a>
-                   </div>
-                 </div>
-                 <div class="btn-group">
-                 <button type="button" class="btn btn-info dropdown-toggle" id="department" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Department
-                 </button>
-                   <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Choose department</a>
-                   </div>
-                 </div>
-                 <div class="btn-group">
-                 <button type="button" class="btn btn-info dropdown-toggle" id="job-title" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Choose brand</a>
+              </div>
+            </div>
+			
+			 <div class="form-group">
+                <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Department
+                </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Choose department</a>
+              </div>
+            </div>
+            
+             <div class="form-group">
+                <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Job Title
-                 </button>
-                   <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Choose job</a>
-                   </div>
-                 </div>
-            <div class="form-group">
-                <input type="text" name="first-name" id="first-name" class="form-control input-lg" placeholder="Enter first name">
+                </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Choose Job Title</a>
+              </div>
             </div>
-            <div class="form-group">
-                <input type="text" name="last-name" id="last-name" class="form-control input-lg" placeholder="Enter last name">
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
-            </div>
+            
+				<div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
+				</div>
+				<div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
+				</div>
+				<div class="form-group">
+                    <button type="button" id="search" class="btn btn-success" data-color="info">Search</button>
+				</div>
+		
+		</form>
+	</div>
+        
+    <hr class="colorgraph"> 
 
-{{!-- rainbow stripe --}}
-            <hr class="colorgraph"> 
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Edit">
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a href="" class="btn btn-lg btn-primary btn-block">Delete</a>
-                </div>
-            </div>
-        </fieldset>
-        </form>
-        </div>
-    </div>
-  
-    {{!-- form trial end! --}}
   <div class="table-wrapper-scroll-y results-scrollbar">
-
- 
     <table class="table table-bordered table-striped mb-0">
       <thead>
           <!-- id`, `firstName`, `lastName`, `jobTitle`, `email`, `departmentID` -->      
@@ -92,4 +76,14 @@
       </tbody>
     </table>
   </div>
+  <hr class="colorgraph"> 
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="submit" id="edit" class="btn btn-lg btn-success btn-block" value="Edit">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="" id="delete" class="btn btn-lg btn-primary btn-block">Delete</a>
+                </div>
+            </div>
+{{!-- container div end --}}
 </div>

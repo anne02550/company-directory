@@ -1,9 +1,15 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
-const db = require('./source/database')
+const bodyParser = require('body-parser');
+const db = require('./source/database');
 
 const app = express()
 const port = 3000
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use('/public', express.static('public'))
 
@@ -17,6 +23,11 @@ app.get('/login', (req, res) => {
 app.get('/results', async (req, res) => {
     const personnel = await db.getPersonnel();
     res.render('results', {pageName: "results", personnel: personnel})
+})
+
+app.post('/add-employee', async (req, res) => {
+  console.log(req.body);
+  res.redirect('results')
 })
 
 app.listen(port, () => {

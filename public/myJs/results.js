@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
     // Material Select
-    $('.mdb-select').materialSelect({
-    });
-  })
+    // $('.mdb-select').materialSelect({});
+})

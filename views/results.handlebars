@@ -5,15 +5,17 @@
         <fieldset>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a href="" class="btn btn-lg btn-primary btn-block">Add Employee</a>
+                    <input  class="btn btn-lg btn-primary btn-block" data-toggle="collapse" href="#add-employee-form" value="Add Employee">
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Find Employee">
+                    <input  class="btn btn-lg btn-success btn-block" data-toggle="collapse" href="#search-form" value="Find Employee">
                 </div>
             </div> 
 		      <hr class="colorgraph">
-         
+        </fieldset>
+
     {{!-- Search Form start --}}
+      <div class="row collapse" id="search-form">
         <div class="form-group">
           <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
             <option value="" disabled selected>Choose Branch</option>
@@ -39,30 +41,75 @@
 			  <div class="form-group">
           <input type="text" name="first-name" id="first-name" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
 			  </div>
+
 		  	<div class="form-group">
           <input type="text" name="last-name" id="last-name" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
 			  </div>
+
   		  <div class="form-group">
           <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
         </div>	    
-        <hr class="colorgraph"> 
 
-        </fieldset>
+        <button type="submit" class="btn btn-lg btn-success btn-block">Find</button>
+        <hr class="colorgraph">      
+      </div>
         {{!-- Form end --}}
+        {{!-- add employee form start --}}
+        <div class="row collapse" id="add-employee-form">
+        <div class="form-group">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
+            <option value="" disabled selected>Choose Branch</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
+            <option value="" disabled selected>Choose Department</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>  
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
+            <option value="" disabled selected>Choose Job Title</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+
+			  <div class="form-group">
+          <input type="text" name="first-name" id="first-name" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
+			  </div>
+
+		  	<div class="form-group">
+          <input type="text" name="last-name" id="last-name" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
+			  </div>
+
+  		  <div class="form-group">
+          <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
+        </div>	    
+        
+        <button type="submit" class="btn btn-lg btn-success btn-block">Add</button>
+        <hr class="colorgraph">      
+      </div>
+      {{!-- Add employee form end --}}
       </form>
     </div>
   </div>
 
   {{!-- Result table start --}}
-  <div class="table-wrapper-scroll-y results-scrollbar">
-    <table class="table table-bordered table-striped mb-0">
-      <thead>    
-        <tr>
-          <th>ID</th>
-          <th>Employee</th>
-          <th>E/D</th>       
-        </tr>
-      </thead>>
+   <div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8">
+      <div class="table-wrapper-scroll-y results-scrollbar">
+        <table class="table table-bordered table-striped mb-0">
+          <thead>   
+            <tr>
+              <th>ID</th>
+              <th>Employee</th>
+              <th>E/D</th>       
+            </tr>
+          </thead>
       <tbody>
         {{#each personnel}}
         <tr>
@@ -80,6 +127,8 @@
       </tbody>
     </table>
   {{!-- Result table end --}}
+  </div>
+  </div>
   </div>
     <hr class="colorgraph"> 
 {{!-- container div end --}}

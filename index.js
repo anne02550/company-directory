@@ -26,7 +26,8 @@ app.get('/results', async (req, res) => {
 })
 
 app.post('/add-employee', async (req, res) => {
-  console.log(req.body);
+  // TODO validate 
+  db.addPersonnel(req.body);
   res.redirect('results')
 })
 

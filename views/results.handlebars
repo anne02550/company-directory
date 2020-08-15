@@ -1,89 +1,88 @@
 <div class="container">
- <div class="row" style="margin-top:20px">
-   <button type="button" id="add-employee" class="btn btn-primary" data-color="info">Add Employee</button>
-		
-		<hr class="colorgraph">
-    <label for="label" class="mr-sm-4"><h4>Find Employee:</h4></label>  
+    <button type="button" id="add-employee" class="btn btn-primary" data-color="info">Add Employee</button>	
+		  <hr class="colorgraph">
+      <label for="label" class="mr-sm-4"><h4>Find Employee:</h4></label> 
+  
+    <form role="form" class="form-inline" id="form-select" >
+        <div class="form-group">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
+            <option value="" disabled selected>Choose Branch</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
+            <option value="" disabled selected>Choose Department</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>  
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" searchable="Search and add here...">
+            <option value="" disabled selected>Choose Job Title</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+      
+    </form >
+    </div> 
 
-    <form role="form" class="form-inline">				
-		    <div class="form-group">
-                <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Branch
-                </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Choose brand</a>
-              </div>
-            </div>
-			
-			 <div class="form-group">
-                <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Department
-                </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Choose department</a>
-              </div>
-            </div>
-            
-             <div class="form-group">
-                <button type="button" class="btn btn-info dropdown-toggle" id="branch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Job Title
-                </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Choose Job Title</a>
-              </div>
-            </div>
-            
-				<div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
-				</div>
-				<div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
-				</div>
-				<div class="form-group">
-                    <button type="button" id="search" class="btn btn-success" data-color="info">Search</button>
-				</div>
-		
+    <form role="form" class="form-inline" id="form-input">						   
+			<div class="form-group">
+        <input type="text" name="first-name" id="first-name" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
+			</div>
+			<div class="form-group">
+        <input type="text" name="last-name" id="last-name" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
+			</div>
+  		<div class="form-group">
+        <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
+		  </div>	
 		</form>
-	</div>
-        
+	  <div class="">
+      <button type="button" id="search" class="btn btn-success" data-color="info">Search</button>
+		</div>     
     <hr class="colorgraph"> 
 
+  {{!-- div table start --}}
   <div class="table-wrapper-scroll-y results-scrollbar">
     <table class="table table-bordered table-striped mb-0">
-      <thead>
-          <!-- id`, `firstName`, `lastName`, `jobTitle`, `email`, `departmentID` -->      
+      <thead>    
         <tr>
           <th>ID</th>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
-          <th>Job Title</th>
-          <th>Department ID</th>
-        
+          <th>Employee</th>
+          <th>E/D</th>       
         </tr>
-      </thead>
+      </thead>>
       <tbody>
         {{#each personnel}}
         <tr>
           <td>{{this.id}}</td>
-          <td>{{this.firstName}}</td>
-          <td>{{this.lastName}}</td>
-          <td>{{this.email}}</td>
-          <td>{{this.jobTitle}}</td>
-          <td>{{this.departmentID}}</td>
+          <td>
+            {{this.firstName}} {{this.lastName}} : Software Engineer
+          </td>
+          <td>
+            <input type="submit" id="edit" class="btn btn-success btn-block" value="Edit">
+            </br>
+            <a href="" id="delete" class="btn btn-primary btn-block">Delete</a>
+          </td>
         </tr>
         {{/each}}
       </tbody>
     </table>
+  {{!-- table div end --}}
   </div>
+
   <hr class="colorgraph"> 
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <input type="submit" id="edit" class="btn btn-lg btn-success btn-block" value="Edit">
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a href="" id="delete" class="btn btn-lg btn-primary btn-block">Delete</a>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <input type="submit" id="edit" class="btn btn-lg btn-success btn-block" value="Edit">
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <a href="" id="delete" class="btn btn-lg btn-primary btn-block">Delete</a>
+      </div>
+      </div>
+
 {{!-- container div end --}}
 </div>

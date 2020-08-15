@@ -21,7 +21,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/results', async (req, res) => {
-    const personnel = await db.getPersonnel();
+    const personnel = await db.getPersonnel(req.query);
     res.render('results', {pageName: "results", personnel: personnel})
 })
 

@@ -17,7 +17,33 @@ const getBySql = (sql) => new Promise((resolve, reject) => {
     })
 });
 
-const getPersonnel = async () => await getBySql('SELECT * FROM personnel');
+const getBySqlWithValues = (sql, values) => new Promise((resolve, reject) => {
+    connection.query(sql, values, function (err, rows, fields) {
+        if (err) {
+            reject(err);
+        }
+        resolve(rows);
+    })
+});
+
+const getPersonnel = async (query) => {
+    let sql = 'SELECT * FROM personnel';
+    
+    if(!query) {
+        return await getBySql(sql);
+    }
+    const allowedSearchTerms = ['firstName', 'lastName', 'jobTitle', 'departmentID', 'email']
+    const values = [];
+    for(const key of allowedSearchTerms) {
+        const value = query[key];
+        if(value) {
+            const condition = values.length == 0 ? "WHERE" : "AND"
+            sql += ` ${condition} ${key} = ?`
+            values.push(value);
+        }
+    }
+    return await getBySqlWithValues(sql, [values]);
+};
 
 const addPersonnel = ({departmentId, jobTitle, firstName, lastName, email}) => new Promise((resolve, reject) => {
     const sql = "INSERT INTO personnel (departmentID, jobTitle, firstName, lastName, email) VALUES ?";

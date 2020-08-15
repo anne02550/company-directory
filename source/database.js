@@ -18,6 +18,8 @@ const getBySql = (sql) => new Promise((resolve, reject) => {
 });
 
 const getBySqlWithValues = (sql, values) => new Promise((resolve, reject) => {
+    console.log(sql)
+    console.log(values)
     connection.query(sql, values, function (err, rows, fields) {
         if (err) {
             reject(err);
@@ -42,7 +44,7 @@ const getPersonnel = async (query) => {
             values.push(value);
         }
     }
-    return await getBySqlWithValues(sql, [values]);
+    return await getBySqlWithValues(sql, values);
 };
 
 const addPersonnel = ({departmentId, jobTitle, firstName, lastName, email}) => new Promise((resolve, reject) => {

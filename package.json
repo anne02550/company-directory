@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "init-db": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,10 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }

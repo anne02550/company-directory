@@ -58,7 +58,19 @@ const addPersonnel = ({departmentId, jobTitle, firstName, lastName, email}) => n
     })
 });
 
+const deletePersonnel = (id) => new Promise((resolve, reject) => {
+    const sql = "DELETE FROM personnel WHERE id = ?";
+    const values = [id];
+    connection.query(sql, [values], function (err, result) {
+        if (err) {
+            reject(err);
+        }
+        resolve(result.affectedRows);
+    })
+});
+
 module.exports = {
     getPersonnel,
-    addPersonnel
+    addPersonnel,
+    deletePersonnel
 }

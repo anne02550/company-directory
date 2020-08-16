@@ -123,7 +123,9 @@
           <td>
             <input type="submit" id="edit" class="btn btn-success btn-block" value="Edit">
             </br>
-            <a href="" id="delete" class="btn btn-primary btn-block">Delete</a>
+            <form action="/delete-employee/{{this.id}}" method="post">
+            <button href="" id="delete" class="btn btn-primary btn-block" name="foo" value="delete">Delete</button>
+            </form>
           </td>
         </tr>
         {{/each}}

@@ -31,6 +31,12 @@ app.post('/add-employee', async (req, res) => {
   res.redirect('results')
 })
 
+app.post('/delete-employee/:id', async (req, res) => {
+  const id = req.params.id;
+  db.deletePersonnel(id);
+  res.redirect('/results');
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

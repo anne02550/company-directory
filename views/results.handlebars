@@ -18,7 +18,9 @@
      {{>find-employee-form}}    
 
        {{!-- add-employee --}}
-     {{>add-employee-form}}    
+     {{>add-employee-form}} 
+
+      {{>edit-form}}   
  
     </div>
   </div>
@@ -43,11 +45,8 @@
             {{this.firstName}} {{this.lastName}} : Software Engineer
           </td>
           <td>
-            <input type="submit" id="edit" class="btn btn-success btn-block" value="Edit">
+            <input type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" value="Edit">
             </br>
-                 {{!-- edit-Form --}}
-                 {{>edit-form}}    
-
             <form action="/delete-employee/{{this.id}}" method="post">
             <button href="" id="delete" class="btn btn-primary btn-block" name="foo" value="delete">Delete</button>
             </form>
@@ -57,6 +56,8 @@
       </tbody>
     </table>
   {{!-- Result table end --}}
+  {{!-- edit-form --}}
+
   </div>
   </div>
   </div>

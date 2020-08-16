@@ -1,4 +1,10 @@
 $(document).ready(function() {
-    // Material Select
-    // $('.mdb-select').materialSelect({});
+    $(".edit").click((event) => {
+        var id = $(event.target).attr('employee');
+        
+        $('#edit-form').collapse('show');
+
+    });
 })
+
+

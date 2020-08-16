@@ -37,6 +37,12 @@ app.post('/delete-employee/:id', async (req, res) => {
   res.redirect('/results');
 })
 
+app.get('/get-employee/:id', async (req, res) => {
+  const id = req.params.id;
+  const result = await db.getPersonnel({id});
+  res.send(result[0]);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

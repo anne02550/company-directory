@@ -1,4 +1,4 @@
-const {personnel} = require('../database/models');
+const {personnel, department, location} = require('../database/models');
 
 const buildQuery = (queryParams) => {
     const cleanQuery = {};
@@ -26,8 +26,32 @@ const deletePersonnel = async (id) => {
     return await employee[0].destroy();
 };
 
+const editPersonnel = async ({departmentId, jobTitle, firstName, lastName, email, id}) => {
+    const employees = await personnel.findAll({ where: { id } });
+    const employee = employees[0];
+    employee.firstName = firstName;
+    employee.lastName = lastName;
+    employee.jobTitle = jobTitle;
+    employee.email = email;
+    employee.departmentId = departmentId;
+
+    return await employee.save();
+};
+
+// get department from database:
+const getAllDepartments = async () => {
+    return await department.findAll({raw: true});
+};
+// get location from databasse:
+const getAllLocations = async () => {
+    return await location.findAll({raw: true});
+};
+
 module.exports = {
     getPersonnel,
     addPersonnel,
-    deletePersonnel
+    deletePersonnel,
+    editPersonnel,
+    getAllDepartments,
+    getAllLocations
 }

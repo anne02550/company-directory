@@ -4,6 +4,7 @@
         
         <div class="form-group">
           <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" name="departmentId" searchable="Search and add here..." required>
+            
             <option value="" disabled selected>Choose Department</option>
             {{#each departments}}
             <option value="{{this.id}}">{{this.name}}</option>

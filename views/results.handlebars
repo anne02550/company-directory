@@ -5,10 +5,10 @@
         <fieldset>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <button type="submit"  class="btn btn-lg btn-primary btn-block" data-toggle="collapse" href="#add-employee-form" >Add Employee</button>
+                    <button type="submit"  id="add-employee-button" class="btn btn-lg btn-primary btn-block" >Add Employee</button>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <button type="submit"  class="btn btn-lg btn-success btn-block" data-toggle="collapse" href="#search-form" >Find Employee</button>
+                    <button type="submit"  id="find-employee-button" class="btn btn-lg btn-success btn-block" >Find Employee</button>
                 </div>
             </div> 
 		      <hr class="colorgraph">
@@ -47,9 +47,10 @@
               <td>
                 <button type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" >Edit</button>
                 </br>
-              <form action="/delete-employee/{{this.id}}" method="post">
-                <button type="submit" href="" id="delete" class="btn btn-primary btn-block" name="foo" >Delete</button>
+              <form class="delete-form" action="/delete-employee/{{this.id}}" method="post">
+                <button type="submit" class="btn btn-primary btn-block" name="btn" >Delete</button>
               </form>
+              {{>delete-confirmation}}  
               </td>
             </tr>
             {{/each}}

@@ -19,7 +19,7 @@
 
     {{!-- add-employee --}}
      {{>add-employee-form}} 
-     
+
     {{!-- edit form --}}
      {{>edit-form}}   
  
@@ -47,7 +47,7 @@
               <td>
                 <input type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" value="Edit">
                 </br>
-           ]] <form action="/delete-employee/{{this.id}}" method="post">
+              <form action="/delete-employee/{{this.id}}" method="post">
                 <button href="" id="delete" class="btn btn-primary btn-block" name="foo" value="delete">Delete</button>
               </form>
               </td>

@@ -17,10 +17,11 @@
     {{!-- find-employee --}}
      {{>find-employee-form}}    
 
-       {{!-- add-employee --}}
+    {{!-- add-employee --}}
      {{>add-employee-form}} 
-
-      {{>edit-form}}   
+     
+    {{!-- edit form --}}
+     {{>edit-form}}   
  
     </div>
   </div>
@@ -37,30 +38,28 @@
               <th>E/D</th>       
             </tr>
           </thead>
-      <tbody>
-        {{#each personnel}}
-        <tr>
-          <td>{{this.id}}</td>
-          <td>
-            {{this.firstName}} {{this.lastName}} : Software Engineer
-          </td>
-          <td>
-            <input type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" value="Edit">
-            </br>
-            <form action="/delete-employee/{{this.id}}" method="post">
-            <button href="" id="delete" class="btn btn-primary btn-block" name="foo" value="delete">Delete</button>
-            </form>
-          </td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  {{!-- Result table end --}}
-  {{!-- edit-form --}}
+          <tbody>
+            {{#each personnel}}
 
-  </div>
-  </div>
+            <tr>
+              <td>{{this.id}}</td>
+              <td> {{this.firstName}} {{this.lastName}} : Software Engineer </td>
+              <td>
+                <input type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" value="Edit">
+                </br>
+           ]] <form action="/delete-employee/{{this.id}}" method="post">
+                <button href="" id="delete" class="btn btn-primary btn-block" name="foo" value="delete">Delete</button>
+              </form>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+  {{!-- Result table end --}}
+      </div>
+    </div>
   </div>
     <hr class="colorgraph"> 
+
 {{!-- container div end --}}
 </div>

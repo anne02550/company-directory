@@ -3,7 +3,7 @@
         <div class="row collapse" id="add-employee-form">
         
         <div class="form-group">
-          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" name="departmentId" searchable="Search and add here...">
+          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" name="departmentId" searchable="Search and add here..." required>
             <option value="" disabled selected>Choose Department</option>
             {{#each departments}}
             <option value="{{this.id}}">{{this.name}}</option>
@@ -11,19 +11,19 @@
           </select>
         </div>
         <div class="form-group">
-            <input type="text" name="jobTitle" id="edit-jobTitle" class="form-control mb-2 mr-sm-2" placeholder="Enter Job Title">
+            <input type="text" name="jobTitle" id="edit-jobTitle" class="form-control mb-2 mr-sm-2" placeholder="Enter Job Title" required>
         </div>
 
 			  <div class="form-group">
-          <input type="text" name="firstName" id="firstName" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
+          <input type="text" name="firstName" id="firstName" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname" required>
 			  </div>
 
 		  	<div class="form-group">
-          <input type="text" name="lastName" id="lastName" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
+          <input type="text" name="lastName" id="lastName" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname" required>
 			  </div>
 
   		  <div class="form-group">
-          <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
+          <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email" required>
         </div>	    
         
         <button type="submit" class="btn btn-lg btn-success btn-block">Add</button>

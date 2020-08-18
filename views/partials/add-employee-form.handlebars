@@ -1,7 +1,9 @@
 
       <form role="form" action="/add-employee" method="POST">
         <div class="row collapse" id="add-employee-form">
-        
+        {{!-- close button: --}}
+          <button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" href="#add-employee-form"><i class="glyphicon glyphicon-remove"></i></button>
+        {{!--  --}}
         <div class="form-group">
           <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" name="departmentId" searchable="Search and add here..." required>
             
@@ -27,7 +29,7 @@
           <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email" required>
         </div>	    
         
-        <button type="submit" class="btn btn-lg btn-success btn-block">Add</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Add</button>
         <hr class="colorgraph">      
       </div>
     </form>

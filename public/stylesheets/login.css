@@ -7,3 +7,9 @@ h5{
     text-align: center;
     padding: 10px;
 }
+
+#close-icon {
+    color: green;
+    position: fixed;
+    margin-left: 100px;
+}

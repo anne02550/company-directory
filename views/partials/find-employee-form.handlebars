@@ -1,7 +1,9 @@
 
 <form role="form" action="/results" method="GET">
       <div class="row collapse" id="find-employee-form">
-      
+          {{!-- close button: --}}
+          <button type="button" class="btn btn-success btn-circle" data-toggle="collapse" href="#find-employee-form"><i class="glyphicon glyphicon-remove"></i></button>
+          {{!--  --}}
         <div class="form-group">
           <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" editable="true" searchable="Search and add here...">
             <option value="" disabled selected>Choose Department</option>

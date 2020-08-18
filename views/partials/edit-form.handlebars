@@ -1,6 +1,9 @@
 
 <form role="form" action="/update-employee" method="POST">
       <div class="row collapse" id="edit-form">
+          {{!-- close button: --}}
+          <button type="button" class="btn btn-success btn-circle" data-toggle="collapse" href="#edit-form"><i class="glyphicon glyphicon-remove"></i></button>
+          {{!--  --}}
         <div class="form-group">      
           <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" id="edit-departmentId" editable="true" searchable="Search and add here..." required>
             <option value="" disabled selected>Choose Department</option>
@@ -27,7 +30,6 @@
         {{!-- employee id --}}
           <input type="text" name="id" id="edit-id" class="form-control mb-2 mr-sm-2" style="display: none;">
         <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
-         <button data-toggle="collapse" href="#edit-form">X</button>
         <hr class="colorgraph">      
       </div>
     </form>

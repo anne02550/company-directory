@@ -11,8 +11,6 @@
     
 }
 
-
-
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -23,8 +21,6 @@
     border-radius: 15px;
     margin-left: 450px;
     margin-bottom: 20px;
-
-
   }
 
   .modal-dialog {
@@ -39,7 +35,10 @@
     text-align: center;
   }
  
-  
+ a {
+    font-size: large;
+  }
+
 /* Large desktop */
 @media (min-width: 1200px) { ... }
  

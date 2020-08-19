@@ -3,17 +3,21 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const db = require('./source/database');
 const session = require('express-session');
+const uuid = require('uuid');
 
 const app = express();
 const port = 3000;
 
+const env = process.env.ENV || 'dev';
+const secret = env != 'dev' ? uuid.v4() : 'development';
+
 app.use(session({
   key: 'user_id',
-  secret: "some-secret",
+  secret: secret,
   rolling: true,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false},
+  cookie: { secure: env != 'dev'},
 }));
 
 app.use(bodyParser.json());
@@ -106,5 +110,5 @@ app.post('/delete-employee/:id', authenticate, async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`company directory listening at http://localhost:${port}`)
 });

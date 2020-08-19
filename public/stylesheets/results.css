@@ -1,3 +1,39 @@
+
+  /* navbar start  */
+  
+  .navbar.navbar-clean {
+    background: #fff;
+    border-radius: 0;
+    border-bottom: 1px solid #bfbfbf;
+    color: #8f8f8f;
+  }
+  
+  .navbar.navbar-brand {
+    font-weight: 200;
+  }
+  
+  .navbar a {
+    color: #8f8f8f;
+  }
+  .navbar a{
+    position: relative;
+    top: 1px;
+    margin-left: 6px;
+  }
+
+  .navbar-collapse {
+    float: left;
+    margin-top: 10px;
+  }
+
+
+  .logout{
+    float: right;
+    margin-top: 14px;
+  }
+  /* navbar end  */
+
+  
 .results-scrollbar {
     position: relative;
     height: 200px;
@@ -40,14 +76,24 @@
     font-size: large;
   }
 
+  
   @media only screen and (min-width: 375px
   ) and (max-width: 667px) { 
-    .container, .navbar {
+    .container {
       max-width: 80%;
       font-size: 13px;
     }
+
    .btn{
    
      font-size: 14px;
+   }
+
+   .navbar{
+
+   }
+   
+   .logout{
+
    }
   } 

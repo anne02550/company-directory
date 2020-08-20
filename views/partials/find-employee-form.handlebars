@@ -13,7 +13,12 @@
           </select>
         </div>
         <div class="form-group">
-          <input type="text" name="jobTitle" id="edit-jobTitle" class="form-control mb-2 mr-sm-2" placeholder="Enter Job Title">
+          <select class="mdb-select form-control mb-2 mr-sm-2" name="jobTitle" id="edit-jobTitle" editable="true" searchable="Select job title:">
+            <option value="" disabled selected>Choose Job Title</option>
+            {{#each jobTitles}}
+            <option value="{{this.jobTitle}}">{{this.jobTitle}}</option>
+            {{/each}}
+          </select>
         </div>
 
 			  <div class="form-group">

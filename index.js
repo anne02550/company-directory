@@ -11,6 +11,7 @@ const port = 3000;
 const env = process.env.ENV || 'dev';
 const secret = env != 'dev' ? uuid.v4() : 'development';
 
+
 app.use(session({
   key: 'user_id',
   secret: secret,
@@ -67,8 +68,15 @@ app.get('/results', authenticate, async (req, res) => {
     const personnel = await db.getPersonnel(req.query);
     const departments = await db.getAllDepartments();
     const locations = await db.getAllLocations();
+    const jobTitles = await db.getJobTitles();
 
-    res.render('results', {pageName: "results", personnel: personnel, departments: departments, locations: locations})
+    res.render('results', {
+      pageName: "results", 
+      personnel: personnel, 
+      departments: departments, 
+      locations: locations, 
+      jobTitles: jobTitles,
+    })
 });
 
 // API

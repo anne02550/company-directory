@@ -1,4 +1,5 @@
 const {personnel, department, location} = require('../database/models');
+const Sequelize = require('sequelize');
 
 const buildQuery = (queryParams) => {
     const cleanQuery = {};
@@ -15,6 +16,13 @@ const buildQuery = (queryParams) => {
 const getPersonnel = async (queryParams) => {
     const query = buildQuery(queryParams);
     return await personnel.findAll({raw: true, where: query });
+};
+
+const getJobTitles = async () => {
+    return await personnel.findAll({
+        attributes: [[Sequelize.fn("DISTINCT", Sequelize.col('jobTitle')), 'jobTitle']],
+        raw: true
+    });
 };
 
 const addPersonnel = async ({departmentId, jobTitle, firstName, lastName, email}) => {
@@ -53,5 +61,6 @@ module.exports = {
     deletePersonnel,
     editPersonnel,
     getAllDepartments,
-    getAllLocations
+    getAllLocations,
+    getJobTitles,
 }

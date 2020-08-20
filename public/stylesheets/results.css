@@ -63,60 +63,69 @@
  a {
     font-size: large;
   }
-
-  /* small screens: */
-  @media only screen and (min-width: 280px
-  ) and (max-width: 667px) { 
-
-    .container {
-      max-width: 80%;
-      font-size: 13px;
-      text-align: center;
-    }
-
-   .btn{
-   
-     font-size: 14px;
-    }
-
-   .navbar{
-        position: relative;
-        width: 100%;
-        text-align: center;
-    }
-   .logout{
-        left: -20px;
-   }
-         
-  } 
-/* large screens: */
-  @media only screen and (min-width: 1024px
-  ) and (max-width: 1366px){ 
-  .container{
-     max-width: 100%;
+ /* small screens: */
+ @media only screen and (min-width: 280px
+ ) and (max-width: 375px) { 
+   .container {
+     max-width: 80%;
+     font-size: 13px;
      text-align: center;
-     font-size: 20px;
-  }
+   }
+   .btn-circle{
+   position: relative;
+   margin-left: -300px;
+   text-align: center;
+   font-size: 15px;
 
+   }
   .btn{
-     font-size: 25px;
-    }
+  
+    font-size: 14px;
+   }
+  .navbar{
+       position: relative;
+       width: 100%;
+       text-align: center;
+   }
+  .logout{
+       left: -20px;
+   }        
+ } 
+
+  @media only screen and (min-width: 410px
+ ) and (max-width:455px){
+    .logout{
+       left: -20px;
+   }
   .btn-circle{
-    position: relative;
-    margin-left: -450px;
+     margin-left: -10px;
+   }
+ }
+
+/* large screens: */
+ @media only screen and (min-width: 1024px
+ ) and (max-width: 1366px){ 
+ .container{
+    max-width: 100%;
     text-align: center;
     font-size: 20px;
+  }
+ .btn{
+    font-size: 25px;
+  }
+ .btn-circle{
+   position: relative;
+   margin-left: -450px;
+   text-align: center;
+   font-size: 20px;
 
   }
-  .navbar{
-     position: relative;
-     width: 100%;
-     padding: 10px;   
-    }
-  
-  .new_footer_area bg_color{
-    position: fixed;
-  
+ .navbar{
+    position: relative;
+    width: 100%;
+    padding: 10px;   
   }
-
+ .new_footer_area bg_color{
+   position: fixed;
   }
+ }

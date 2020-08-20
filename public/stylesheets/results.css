@@ -1,35 +1,23 @@
 
   /* navbar start  */
-  
   .navbar.navbar-clean {
     background: #fff;
     border-radius: 0;
     border-bottom: 1px solid #bfbfbf;
     color: #8f8f8f;
   }
-  
   .navbar.navbar-brand {
     font-weight: 200;
   }
-  
   .navbar a {
     color: #8f8f8f;
-  }
-  .navbar a{
     position: relative;
     top: 1px;
     margin-left: 6px;
   }
-
-  .navbar-collapse {
-    float: left;
-    margin-top: 10px;
-  }
-
-
   .logout{
     float: right;
-    margin-top: 14px;
+    margin-top: 13px;
   }
   /* navbar end  */
 
@@ -76,24 +64,27 @@
     font-size: large;
   }
 
-  
   @media only screen and (min-width: 375px
   ) and (max-width: 667px) { 
+
     .container {
       max-width: 80%;
       font-size: 13px;
+      text-align: center;
     }
 
    .btn{
    
      font-size: 14px;
-   }
+    }
 
    .navbar{
-
-   }
-   
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
    .logout{
-
+        left: -20px;
    }
+         
   } 

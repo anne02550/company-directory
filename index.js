@@ -11,6 +11,13 @@ const port = 3000;
 const env = process.env.ENV || 'dev';
 const secret = env != 'dev' ? uuid.v4() : 'development';
 
+const addAdditionalFields = (departments, locations, employee) => {
+  const department = departments.find(d => d.id === employee.departmentId);
+  const location = locations.find(l => l.id === department.locationId)
+  employee.departmentName = department.name;
+  employee.locationName = location.name;
+  return employee;
+};
 
 app.use(session({
   key: 'user_id',
@@ -65,10 +72,13 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/results', authenticate, async (req, res) => {
-    const personnel = await db.getPersonnel(req.query);
+    let personnel = await db.getPersonnel(req.query);
     const departments = await db.getAllDepartments();
     const locations = await db.getAllLocations();
     const jobTitles = await db.getJobTitles();
+
+    personnel = personnel.map(x => addAdditionalFields(departments, locations, x));
+// sort personell here:
 
     res.render('results', {
       pageName: "results", 

@@ -41,62 +41,19 @@
     </div>
   </div>
 {{!-- trial card --}}
- <div class="row" >
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card">
-        {{#each personnel}}
-        <div class="card-body">
-          <h5 class="card-title">{{this.firstName}} {{this.lastName}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{this.jobTitle}}</h6>
-              <p class="card-text">{{this.email}}</pclass="card-text">
-              <p class="card-text">{{this.departmentName}}, {{this.locationName}}</pclass="card-text">
-              <button type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" >Edit</button>      
-          <form class="delete-form" action="/delete-employee/{{this.id}}" method="post">
-            <button type="submit" class="btn btn-primary btn-block" name="btn" >Delete</button>
-          </form>
-            {{>delete-confirmation}}
-        </div>
-        {{/each}}
+<div class="container" >
+  {{#groupedEach 3 personnel}}
+  <div class="row">
+    {{#each this }}
+      <div class="col-md-4 item">
+      {{>employee-card this}}
       </div>
+    {{/each}}      
+  </div>
+  {{/groupedEach}}
 </div>
+{{>delete-confirmation}}
 </div>
-{{!-- trial card end --}}
-  {{!-- Result table start 
-   <div class="row" >
-    <div class="col">
-      <div class="table-wrapper-scroll-y results-scrollbar">
-        <table class="table table-bordered table-striped mb-0 ">
-          <thead>   
-            <tr>
-              <th>ID</th>
-              <th>Employee</th>       
-            </tr>
-          </thead>
-          <tbody>
-            {{#each personnel}}
-
-            <tr>
-              <td>{{this.id}}
-              </td>
-              <td> 
-                <p>{{this.firstName}} {{this.lastName}}</p>
-                <p>{{this.jobTitle}}</p>
-                <p>{{this.email}}</p>
-                <p>{{this.departmentName}}, {{this.locationName}}</p>
-                   <button type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" >Edit</button>
-                </br>
-              <form class="delete-form" action="/delete-employee/{{this.id}}" method="post">
-                <button type="submit" class="btn btn-primary btn-block" name="btn" >Delete</button>
-              </form>
-              {{>delete-confirmation}}  
-              </td>
-              
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-        --}}
-  {{!-- Result table end --}}
       </div>
     </div>
   </div>

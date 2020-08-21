@@ -1,0 +1,14 @@
+<div class="card card-body">
+    <h5 class="card-title">{{this.firstName}} {{this.lastName}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{this.jobTitle}}</h6>
+    <p class="card-text">{{this.email}}</p>
+    <p class="card-text">{{this.departmentName}}, {{this.locationName}}</p>
+    <div class="row">
+        <div class="col-xs-6">
+            <button type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" >Edit</button>
+        </div>
+        <form class="col-xs-6 delete-form" action="/delete-employee/{{this.id}}" method="post">
+            <button type="submit" class="btn btn-primary btn-block" name="btn" >Delete</button>
+        </form>
+    </div> 
+</div>

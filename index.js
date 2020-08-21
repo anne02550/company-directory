@@ -19,6 +19,21 @@ const addAdditionalFields = (departments, locations, employee) => {
   return employee;
 };
 
+const groupedEach = (every, context, options) => {
+  var out = "", subcontext = [], i;
+  if (context && context.length > 0) {
+      for (i = 0; i < context.length; i++) {
+          if (i > 0 && i % every === 0) {
+              out += options.fn(subcontext);
+              subcontext = [];
+          }
+          subcontext.push(context[i]);
+      }
+      out += options.fn(subcontext);
+  }
+  return out;
+};
+
 app.use(session({
   key: 'user_id',
   secret: secret,
@@ -34,7 +49,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/public', express.static('public'));
-app.engine('handlebars', handlebars());
+app.engine('handlebars', handlebars({
+  helpers: { groupedEach }
+}));
 app.set('view engine', 'handlebars');
 
 // Utils

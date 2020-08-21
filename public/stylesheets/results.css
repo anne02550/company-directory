@@ -64,6 +64,19 @@
  a {
     font-size: large;
   }
+
+  .card{
+    text-align: center;
+    display: block;
+    height: 100%;
+  }
+
+.delete-form {
+  width: 30%;
+}
+#edit {
+  width: 20%;
+}
  /* small screens: */
  @media only screen and (min-width: 280px
  ) and (max-width: 375px) { 

@@ -28,7 +28,8 @@
     overflow: auto;
 }
 .table-wrapper-scroll-y {
-    display: block;
+  display: block;
+  height: 100%;  
 }
 .form-inline {
     margin-left: 20px;

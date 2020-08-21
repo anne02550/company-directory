@@ -40,23 +40,22 @@
  
     </div>
   </div>
-{{!-- trial card --}}
+
+{{!--card --}}
 <div class="container" >
-  {{#groupedEach 3 personnel}}
-  <div class="row">
-    {{#each this }}
-      <div class="col-md-4 item">
-      {{>employee-card this}}
+ 
+           {{#groupedEach 3 personnel}}
+      <div class="row">
+          {{#each this }}
+        <div class="col-md-4 item">
+          {{>employee-card this}}
+        </div>
+          {{/each}}      
       </div>
-    {{/each}}      
-  </div>
-  {{/groupedEach}}
+          {{/groupedEach}}
+ 
 </div>
 {{>delete-confirmation}}
-</div>
-      </div>
-    </div>
-  </div>
     <hr class="colorgraph"> 
 
 {{!-- container div end --}}

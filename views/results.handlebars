@@ -43,7 +43,10 @@
 
 {{!--card --}}
 <div class="container" >
- 
+
+{{#unless personnel.length}}
+  <h5 style="text-align: center;">Sorry, the employee that you want to find does not exist!</h5>
+{{/unless}}
            {{#groupedEach 3 personnel}}
       <div class="row">
           {{#each this }}

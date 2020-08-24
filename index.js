@@ -67,7 +67,7 @@ const authenticate = (req, res, next) => {
 
 // Redirrects
 app.get('/', (req, res) => {
-  res.redirect('/login');
+  res.sendFile(__dirname + '/homepage.html');
 });
 
 app.get('/logout', async (req, res) => {

@@ -79,7 +79,7 @@
 
  /* small screens: */
  @media only screen and (min-width: 280px
- ) and (max-width: 375px) { 
+ ) and (max-width: 376px) { 
    .container {
      max-width: 80%;
      font-size: 13px;
@@ -103,7 +103,10 @@
    }
   .logout{
        left: -20px;
-   }        
+   }   
+   .card{
+    width: 150%;
+    margin-left: -45px;     
  } 
 
   @media only screen and (min-width: 410px
@@ -114,7 +117,12 @@
   .btn-circle{
      margin-left: -10px;
    }
+   .card{
+    width: 150%;
+    margin-left: -50px;
+    }
  }
+
 
 /* large screens: */
  @media only screen and (min-width: 1024px

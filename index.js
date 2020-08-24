@@ -6,7 +6,7 @@ const session = require('express-session');
 const uuid = require('uuid');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const env = process.env.ENV || 'dev';
 const secret = env != 'dev' ? uuid.v4() : 'development';

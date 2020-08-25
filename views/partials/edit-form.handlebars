@@ -1,41 +1,52 @@
 
-<form role="form" action="/update-employee" method="POST">
-      <div class="row collapse" id="edit-form">
-          {{!-- close button: --}}
-          <button type="button" class="btn btn-success btn-circle" data-toggle="collapse" href="#edit-form"><i class="glyphicon glyphicon-remove"></i></button>
-          {{!--  --}}
-        <div class="form-group">      
-          <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" id="edit-departmentId" editable="true" searchable="Search and add here..." required>
-            <option value="" disabled selected>Choose Department</option>
-            {{#each departments}}
-            <option value="{{this.id}}">{{this.name}}</option>
-            {{/each}} 
-          </select>
-        </div>
+<div class="modal fade" id="update-employee-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form role="form" action="/update-employee" method="POST">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3>Edit Employee</h3>
+
+      </div>
+      <div class="modal-body">
+        <div id="edit-form">
+          <div class="form-group">      
+            <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" id="edit-departmentId" editable="true" searchable="Search and add here..." required>
+              <option value="" disabled selected>Choose Department</option>
+              {{#each departments}}
+              <option value="{{this.id}}">{{this.name}}</option>
+              {{/each}} 
+            </select>
+          </div>
        
-        <div class="form-group">
-          <input type="text" name="jobTitle" id="edit-jobTitle" class="form-control mb-2 mr-sm-2" placeholder="Enter or Choose Job Title " list="jobTitles" required>
-          <datalist id="jobTitles">
-            {{#each jobTitles}}
-            <option value="{{this.jobTitle}}">{{this.jobTitle}}</option>
-            {{/each}}
-          </datalist>
-        </div>
+          <div class="form-group">
+            <input type="text" name="jobTitle" id="edit-jobTitle" class="form-control mb-2 mr-sm-2" placeholder="Enter or Choose Job Title " list="jobTitles" required>
+            <datalist id="jobTitles">
+              {{#each jobTitles}}
+              <option value="{{this.jobTitle}}">{{this.jobTitle}}</option>
+              {{/each}}
+            </datalist>
+          </div>
 
-			  <div class="form-group">
-          <input type="text" name="firstName" id="edit-firstName" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname" required>
-			  </div>
+          <div class="form-group">
+            <input type="text" name="firstName" id="edit-firstName" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname" required>
+          </div>
 
-		  	<div class="form-group">
-          <input type="text" name="lastName" id="edit-lastName" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname" required>
-			  </div>
+          <div class="form-group">
+            <input type="text" name="lastName" id="edit-lastName" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname" required>
+          </div>
 
-  		  <div class="form-group">
-          <input type="email" name="email" id="edit-email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email" required>
-        </div>	    
-        {{!-- employee id --}}
+          <div class="form-group">
+            <input type="email" name="email" id="edit-email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email" required>
+          </div>	    
           <input type="text" name="id" id="edit-id" class="form-control mb-2 mr-sm-2" style="display: none;">
-        <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
-        <hr class="colorgraph">      
+    
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
+          <hr class="colorgraph">  
       </div>
     </form>
+  </div>
+</div>

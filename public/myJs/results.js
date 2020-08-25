@@ -3,20 +3,18 @@ $(document).ready(function() {
   // add employee button:
   $('#add-employee-button').click(() => {
     $('#find-employee-form.in').collapse('hide');
-    $('#edit-form.in').collapse('hide');
 
     $('#add-employee-form').collapse("toggle");
   });
 
-//find employee button:
+  //find employee button:
   $('#find-employee-button').click(() => {
     $('#add-employee-form.in').collapse('hide');
-    $('#edit-form.in').collapse('hide');
 
     $('#find-employee-form').collapse('toggle');
   });
 
-//delete button:
+  //delete button:
   $('.delete-form').submit(function( event ) {
     event.preventDefault();
     const url = this.action;
@@ -25,30 +23,35 @@ $(document).ready(function() {
     $("#confirm-delete").modal({show:true});
   });
   
- // edit button:
-    $(".edit").click((event) => {
-        var id = $(event.target).attr('employee');
+  $('#logOutButton').click(function(){
+    $('#logOutConfirmation').modal({show:true});
+  })
 
-        $('#add-employee-form.in').collapse('hide');
-        $('#find-employee-form.in').collapse('hide');
+  // edit button:
+  $(".edit").click((event) => {
+    $("#update-employee-modal").modal({show:true});
+    
+    var id = $(event.target).attr('employee');
 
-        $('#edit-form').collapse('show');
+    $('#add-employee-form.in').collapse('hide');
+    $('#find-employee-form.in').collapse('hide');
 
-        function success(employee){
-          $('#edit-jobTitle').val(employee.jobTitle);
-          $('#edit-departmentId').val(employee.departmentId);
-          $('#edit-firstName').val(employee.firstName);
-          $('#edit-lastName').val(employee.lastName);
-          $('#edit-email').val(employee.email);
-          $('#edit-id').val(id);
-        };
-        $.ajax({
-            url: "/get-employee/" + id,
-            success: success,
-          });
+    $('#edit-form').collapse('show');
 
+    function success(employee){
+      $('#edit-jobTitle').val(employee.jobTitle);
+      $('#edit-departmentId').val(employee.departmentId);
+      $('#edit-firstName').val(employee.firstName);
+      $('#edit-lastName').val(employee.lastName);
+      $('#edit-email').val(employee.email);
+      $('#edit-id').val(id);
+    };
+    $.ajax({
+        url: "/get-employee/" + id,
+        success: success,
     });
-})
+  });
+});
 
 
 

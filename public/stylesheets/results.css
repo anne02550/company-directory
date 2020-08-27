@@ -21,6 +21,49 @@
   }
   /* navbar end  */
 
+  a {
+    font-size: large;
+  }
+
+
+/* card: */
+.card-body{
+  position: relative;
+  text-align: center;
+  margin:10px 10px;
+  
+  padding:20px;
+  background:white;
+  border:4px solid #888588;
+  border-radius:0;
+}
+.box{
+  padding:10px 0px;
+}
+#edit{
+  font-size:15px;
+}
+#delete{
+  font-size: 15px;
+}
+.card-title{
+   font-size: 30px;
+}
+.card-subtitle{
+  font-size: 20px;
+}
+.card-text{
+   font-size: 18px;
+}
+
+#cardFooter {
+position: relative;
+margin-left: 70px;
+padding: 5px;
+
+}
+/*  card end */
+
   
 .results-scrollbar {
     position: relative;
@@ -61,19 +104,8 @@
     text-align: center;
   }
  
- a {
-    font-size: large;
-  }
 
-  .card-body{
-    position: relative;
-    text-align: center;
-    padding: 10px;
-    background:white;
-    border:4px solid #888588;
-    margin-bottom: 10px;
-    margin-top: 10px
-  }
+  
 
 
 

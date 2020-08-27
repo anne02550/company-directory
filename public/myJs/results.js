@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
   // click on a button to hide others form and show the form of the button
   // add employee button:
@@ -69,23 +71,5 @@ $(document).ready(function () {
           sticky.removeClass("is-sticky");
           stickyWrapper.height('auto');
       }
-  };
-
-  // Find all data-toggle="sticky-onscroll" elements
-  $('[data-toggle="sticky-onscroll"]').each(function () {
-      var sticky = $(this);
-      var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
-      sticky.before(stickyWrapper);
-      sticky.addClass('sticky');
-
-      // Scroll & resize events
-      $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function () {
-          stickyToggle(sticky, stickyWrapper, $(this));
-      });
-
-      // On page load
-      stickyToggle(sticky, stickyWrapper, $(window));
-  });
-});
-
-
+  }
+})

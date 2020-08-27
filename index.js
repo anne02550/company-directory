@@ -95,7 +95,7 @@ app.get('/results', authenticate, async (req, res) => {
     const jobTitles = await db.getJobTitles();
 
     personnel = personnel.map(x => addAdditionalFields(departments, locations, x));
-// sort personell here:
+    // sort personell here:
 
     res.render('results', {
       pageName: "results", 

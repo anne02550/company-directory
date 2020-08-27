@@ -1,13 +1,12 @@
 
   /* navbar start  */
+
   .navbar.navbar-clean {
     background: #fff;
     border-radius: 0;
     border-bottom: 1px solid #bfbfbf;
     color: #8f8f8f;
-  }
-  .navbar.navbar-brand {
-    font-weight: 200;
+    min-height: 85px;
   }
   .navbar a {
     color: #8f8f8f;
@@ -19,6 +18,15 @@
     float: right;
     margin-top: 13px;
   }
+/*sticky header position*/
+.sticky.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
   /* navbar end  */
 
   a {
@@ -58,10 +66,10 @@
 
 #cardFooter {
 position: relative;
-margin-left: 70px;
+margin: 10px;
 padding: 5px;
 
-}
+} 
 /*  card end */
 
   
@@ -136,11 +144,13 @@ padding: 5px;
   .logout{
        left: -20px;
    }   
-   .card{
-    width: 150%;
-    margin-left: -45px;     
- } 
-
+   .card-body{
+    position: relative;
+    margin-left: -60px;
+     width: 200%;
+   }
+   
+ }
   @media only screen and (min-width: 410px
  ) and (max-width:455px){
     .logout{
@@ -149,10 +159,11 @@ padding: 5px;
   .btn-circle{
      margin-left: -10px;
    }
-   .card{
-    width: 150%;
-    margin-left: -50px;
-    }
+   .card-body{
+    position: relative;
+    margin-left: -60px;
+     width: 200%;
+   }
  }
 
 

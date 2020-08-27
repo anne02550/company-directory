@@ -1,65 +1,76 @@
 {{!-- navbar start --}}
-<nav class="navbar navbar-clean">
-  <div class="container-fluid">
-     
-       <div class="navbar-header">
-         <a class="navbar-brand" href="#">Company Directory</a>
-         <a id="logOutButton" class="logout" href="#">Logout</a>
-       </div>
-       {{>logOutConfirmation}}
-   
-  </div><!-- /.container-fluid -->
-</nav>
+{{!--  <header >
+            <nav class="navbar  navbar-expand-lg navbar-light top-navbar" data-toggle="sticky-onscroll">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <div class="navbar-nav pull-right"> 
+                                <a class="btn btn-primary" href="#">GET A QUOTE</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        <!-- End top header-->
+ --}}
+ <header >
+  <nav class="navbar navbar-expand-lg navbar-clean top-navbar" data-toggle="sticky-onscroll">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Company Directory</a>
+        <a id="logOutButton" class="logout" href="#">Logout</a>
+      </div>      
+          {{>logOutConfirmation}}   
+    </div>
+
+    <div class="container">
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      
+          <fieldset>
+              <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <button type="submit"  id="add-employee-button" class="btn btn-lg btn-primary btn-block" >Add Employee</button>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <button type="submit"  id="find-employee-button" class="btn btn-lg btn-success btn-block" >Find Employee</button>
+                  </div>
+              </div> 
+		        <hr class="colorgraph">
+          </fieldset>
+
+           {{>find-employee-form}}    
+           {{>add-employee-form}} 
+           {{>edit-form}}  
+        </div> 
+      </div>
+    </div>
+
+  </nav>
+</header>
 {{!-- navbar end --}}
 
-<div class="container">
-  
-  <div class="row" style="margin-top:20px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-      
-        <fieldset>
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <button type="submit"  id="add-employee-button" class="btn btn-lg btn-primary btn-block" >Add Employee</button>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <button type="submit"  id="find-employee-button" class="btn btn-lg btn-success btn-block" >Find Employee</button>
-                </div>
-            </div> 
-		      <hr class="colorgraph">
-        </fieldset>
-
-    {{!-- find-employee --}}
-     {{>find-employee-form}}    
-
-    {{!-- add-employee --}}
-     {{>add-employee-form}} 
-
-    {{!-- edit form --}}
-     {{>edit-form}}   
- 
-    </div>
-  </div>
-
 {{!--card --}}
-<div class="container" >
-
-{{#unless personnel.length}}
-  <h5 style="text-align: center;">Sorry, the employee that you want to find does not exist!</h5>
-{{/unless}}
-           {{#groupedEach 3 personnel}}
-      <div class="row">
+  <div class="container" >
+    {{#unless personnel.length}}
+      <h5 style="text-align: center;">Sorry, the employee that you want to find does not exist!</h5>
+      {{/unless}}
+      {{#groupedEach 3 personnel}}
+        <div class="row">
           {{#each this }}
-        <div class="col-md-4 item">
-          {{>employee-card this}}
+            <div class="col-md-4 item">
+              {{>employee-card this}}
+            </div>
+              {{/each}}      
         </div>
-          {{/each}}      
-      </div>
           {{/groupedEach}}
- 
-</div>
-{{>delete-confirmation}}
-    <hr class="colorgraph"> 
 
-{{!-- container div end --}}
+    {{>delete-confirmation}}
+      <hr class="colorgraph"> 
 </div>
+

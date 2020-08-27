@@ -7,11 +7,12 @@
             <h6 class="card-subtitle mb-2 text-muted">{{this.jobTitle}}</h6>
               <p class="card-text">{{this.email}}</p>
               <p class="card-text">{{this.departmentName}}, {{this.locationName}}</p>
+              
              <div class="row" id="cardFooter">
-               <div class="col-xs-6 col-sm-6 col-md-4 ">
+               <div class="col-xs-6 col-sm-6 col-md-6 ">
                  <button type="submit" id="edit" class="btn btn-success btn-block edit" employee="{{this.id}}" >Edit</button>
                </div>
-               <form class="col-xs-6 col-sm-6 col-md-4 delete-form" action="/delete-employee/{{this.id}}" method="post">
+               <form class="col-xs-6 col-sm-6 col-md-6 delete-form" action="/delete-employee/{{this.id}}" method="post">
                  <button type="submit" id="delete" class="btn btn-primary btn-block" name="btn" >Delete</button>
                </form>
              </div> 

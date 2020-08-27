@@ -45,8 +45,7 @@
           </fieldset>
 
            {{>find-employee-form}}    
-           {{>add-employee-form}} 
-           {{>edit-form}}  
+           {{>add-employee-form}}  
         </div> 
       </div>
     </div>
@@ -54,7 +53,7 @@
   </nav>
 </header>
 {{!-- navbar end --}}
-
+  {{>edit-form}} 
 {{!--card --}}
   <div class="container" >
     {{#unless personnel.length}}

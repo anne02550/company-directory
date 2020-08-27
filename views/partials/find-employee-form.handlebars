@@ -1,39 +1,39 @@
 
 <form role="form" action="/results" method="GET">
-      <div class="row collapse" id="find-employee-form">
-          {{!-- close button: --}}
-          <button type="button" class="btn btn-success btn-circle" data-toggle="collapse" href="#find-employee-form"><i class="glyphicon glyphicon-remove"></i></button>
-          {{!--  --}}
-        <div class="form-group">
-          <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" editable="true" searchable="Search and add here...">
-            <option value="" disabled selected>Choose Department</option>
-            {{#each departments}}
-            <option value="{{this.id}}">{{this.name}}</option>
-            {{/each}}
-          </select>
-        </div>
-        <div class="form-group">
-          <select class="mdb-select form-control mb-2 mr-sm-2" name="jobTitle" id="find-jobTitle" editable="true" searchable="Select job title:">
-            <option value="" disabled selected>Choose Job Title</option>
-            {{#each jobTitles}}
-            <option value="{{this.jobTitle}}">{{this.jobTitle}}</option>
-            {{/each}}
-          </select>
-        </div>
+  <div class="row collapse" id="find-employee-form">
+    {{!-- close button: --}}
+    <button type="button" class="btn btn-success btn-circle" data-toggle="collapse" href="#find-employee-form"><i class="glyphicon glyphicon-remove"></i></button>
+    {{!--  --}}
+    <div class="form-group">
+      <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" editable="true" searchable="Search and add here...">
+        <option value="" disabled selected>Choose Department</option>
+        {{#each departments}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <select class="mdb-select form-control mb-2 mr-sm-2" name="jobTitle" id="find-jobTitle" editable="true" searchable="Select job title:">
+        <option value="" disabled selected>Choose Job Title</option>
+        {{#each jobTitles}}
+        <option value="{{this.jobTitle}}">{{this.jobTitle}}</option>
+        {{/each}}
+      </select>
+    </div>
 
-			  <div class="form-group">
-          <input type="text" name="firstName" id="firstName" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
-			  </div>
+    <div class="form-group">
+      <input type="text" name="firstName" id="firstName" class="form-control mb-2 mr-sm-2" placeholder="Enter Firstname">
+    </div>
 
-		  	<div class="form-group">
-          <input type="text" name="lastName" id="lastName" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
-			  </div>
+    <div class="form-group">
+      <input type="text" name="lastName" id="lastName" class="form-control mb-2 mr-sm-2" placeholder="Enter Lastname">
+    </div>
 
-  		  <div class="form-group">
-          <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
-        </div>	    
+    <div class="form-group">
+      <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
+    </div>	    
 
-        <button type="submit" class="btn btn-lg btn-success btn-block">Find</button>
-        <hr class="colorgraph">      
-      </div>
-    </form>
+    <button type="submit" class="btn btn-lg btn-success btn-block">Find</button>
+    <hr class="colorgraph">      
+  </div>
+</form>

@@ -67,7 +67,16 @@ const authenticate = (req, res, next) => {
 
 // Redirrects
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/homepage.html');
+  res.sendFile(__dirname + '/main/homepage.html');
+});
+app.get('/contact', (req, res) => {
+  res.sendFile(__dirname + '/main/contact.html');
+});
+app.get('/portfolio', (req, res) => {
+  res.sendFile(__dirname + '/main/portfolio.html');
+});
+app.get('/resume', (req, res) => {
+  res.sendFile(__dirname + '/main/resume.html');
 });
 
 app.get('/logout', async (req, res) => {

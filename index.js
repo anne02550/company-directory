@@ -48,6 +48,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use('/css', express.static('public/external/css'));
+app.use('/js', express.static('public/external/js'));
 app.use('/public', express.static('public'));
 app.engine('handlebars', handlebars({
   helpers: { groupedEach }
@@ -67,17 +69,55 @@ const authenticate = (req, res, next) => {
 
 // Redirrects
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/main/homepage.html');
+  res.sendFile(__dirname + '/main/index.html');
+});
+
+app.get('/index.html', (req, res) => {
+  res.sendFile(__dirname + '/main/index.html');
+});
+
+app.get('/about.html', (req, res) => {
+  res.sendFile(__dirname + '/main/about.html');
+});
+app.get('/about', (req, res) => {
+  res.sendFile(__dirname + '/main/about.html');
+});
+
+app.get('/blog.html', (req, res) => {
+  res.sendFile(__dirname + '/main/blog.html');
+});
+app.get('/blog', (req, res) => {
+  res.sendFile(__dirname + '/main/blog.html');
+});
+
+app.get('/contact.html', (req, res) => {
+  res.sendFile(__dirname + '/main/contact.html');
 });
 app.get('/contact', (req, res) => {
   res.sendFile(__dirname + '/main/contact.html');
 });
+
+app.get('/portfolio.html', (req, res) => {
+  res.sendFile(__dirname + '/main/portfolio.html');
+});
 app.get('/portfolio', (req, res) => {
   res.sendFile(__dirname + '/main/portfolio.html');
+});
+
+app.get('/resume.html', (req, res) => {
+  res.sendFile(__dirname + '/main/resume.html');
 });
 app.get('/resume', (req, res) => {
   res.sendFile(__dirname + '/main/resume.html');
 });
+
+app.get('/services.html', (req, res) => {
+  res.sendFile(__dirname + '/main/services.html');
+});
+app.get('/services', (req, res) => {
+  res.sendFile(__dirname + '/main/services.html');
+});
+
 
 app.get('/logout', async (req, res) => {
   if (isLoggedIn(req)) {

@@ -18,6 +18,10 @@
      color: white;
      font-size: 19px;
   }
+  #clear-search{
+    color: white;
+    font-size: 19px;
+  }
   .logout{
     float: right;
     margin-top: 13px;

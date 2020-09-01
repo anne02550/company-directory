@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 const buildQuery = (queryParams) => {
     const cleanQuery = {};
-    const allowedSearchTerms = ['id', 'firstName', 'lastName', 'jobTitle', 'departmentID', 'email'];
+    const allowedSearchTerms = ['id', 'firstName', 'lastName', 'jobTitle', 'departmentId', 'email'];
     for(const key of allowedSearchTerms) {
         value = queryParams[key];
         if(value != null && value != '') {

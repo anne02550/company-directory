@@ -50,6 +50,9 @@ app.use(bodyParser.urlencoded({
 
 app.use('/css', express.static('public/external/css'));
 app.use('/js', express.static('public/external/js'));
+app.use('/images', express.static('public/external/images'));
+app.use('/fonts', express.static('public/external/fonts'));
+app.use('/scss', express.static('public/external/scss'));
 app.use('/public', express.static('public'));
 app.engine('handlebars', handlebars({
   helpers: { groupedEach }

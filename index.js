@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const db = require('./source/database');
+const handlebarsConfig = require('./source/handlebars-config');
 const session = require('express-session');
 const uuid = require('uuid');
 
@@ -10,29 +11,6 @@ const port = process.env.PORT || 3000;
 
 const env = process.env.ENV || 'dev';
 const secret = env != 'dev' ? uuid.v4() : 'development';
-
-const addAdditionalFields = (departments, locations, employee) => {
-  const department = departments.find(d => d.id === employee.departmentId);
-  const location = locations.find(l => l.id === department.locationId)
-  employee.departmentName = department.name;
-  employee.locationName = location.name;
-  return employee;
-};
-
-const groupedEach = (every, context, options) => {
-  var out = "", subcontext = [], i;
-  if (context && context.length > 0) {
-      for (i = 0; i < context.length; i++) {
-          if (i > 0 && i % every === 0) {
-              out += options.fn(subcontext);
-              subcontext = [];
-          }
-          subcontext.push(context[i]);
-      }
-      out += options.fn(subcontext);
-  }
-  return out;
-};
 
 app.use(session({
   key: 'user_id',
@@ -48,15 +26,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use('/css', express.static('public/external/css'));
-app.use('/js', express.static('public/external/js'));
-app.use('/images', express.static('public/external/images'));
-app.use('/fonts', express.static('public/external/fonts'));
-app.use('/scss', express.static('public/external/scss'));
 app.use('/public', express.static('public'));
-app.engine('handlebars', handlebars({
-  helpers: { groupedEach }
-}));
+app.engine('handlebars', handlebars(handlebarsConfig));
 app.set('view engine', 'handlebars');
 
 // Utils
@@ -72,55 +43,8 @@ const authenticate = (req, res, next) => {
 
 // Redirrects
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/main/index.html');
+  res.redirect('/login');
 });
-
-app.get('/index.html', (req, res) => {
-  res.sendFile(__dirname + '/main/index.html');
-});
-
-app.get('/about.html', (req, res) => {
-  res.sendFile(__dirname + '/main/about.html');
-});
-app.get('/about', (req, res) => {
-  res.sendFile(__dirname + '/main/about.html');
-});
-
-app.get('/blog.html', (req, res) => {
-  res.sendFile(__dirname + '/main/blog.html');
-});
-app.get('/blog', (req, res) => {
-  res.sendFile(__dirname + '/main/blog.html');
-});
-
-app.get('/contact.html', (req, res) => {
-  res.sendFile(__dirname + '/main/contact.html');
-});
-app.get('/contact', (req, res) => {
-  res.sendFile(__dirname + '/main/contact.html');
-});
-
-app.get('/portfolio.html', (req, res) => {
-  res.sendFile(__dirname + '/main/portfolio.html');
-});
-app.get('/portfolio', (req, res) => {
-  res.sendFile(__dirname + '/main/portfolio.html');
-});
-
-app.get('/resume.html', (req, res) => {
-  res.sendFile(__dirname + '/main/resume.html');
-});
-app.get('/resume', (req, res) => {
-  res.sendFile(__dirname + '/main/resume.html');
-});
-
-app.get('/services.html', (req, res) => {
-  res.sendFile(__dirname + '/main/services.html');
-});
-app.get('/services', (req, res) => {
-  res.sendFile(__dirname + '/main/services.html');
-});
-
 
 app.get('/logout', async (req, res) => {
   if (isLoggedIn(req)) {
@@ -145,6 +69,14 @@ app.get('/results', authenticate, async (req, res) => {
     const departments = await db.getAllDepartments();
     const locations = await db.getAllLocations();
     const jobTitles = await db.getJobTitles();
+
+    const addAdditionalFields = (departments, locations, employee) => {
+      const department = departments.find(d => d.id === employee.departmentId);
+      const location = locations.find(l => l.id === department.locationId)
+      employee.departmentName = department.name;
+      employee.locationName = location.name;
+      return employee;
+    };
 
     personnel = personnel.map(x => addAdditionalFields(departments, locations, x));
     // sort personell here:
@@ -194,7 +126,6 @@ app.post('/delete-employee/:id', authenticate, async (req, res) => {
   db.deletePersonnel(id);
   res.redirect('/results');
 });
-
 
 app.listen(port, () => {
   console.log(`company directory listening at http://localhost:${port}`)

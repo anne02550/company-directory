@@ -1,9 +1,9 @@
 const locations = [
-  { id: 1, name: 'London'},
-  { id: 2, name: 'New York'},
-  { id: 3, name: 'Paris'},
-  { id: 4, name: 'Munich'},
-  { id: 5, name: 'Rome'}
+  { name: 'London' },
+  { name: 'New York' },
+  { name: 'Paris' },
+  { name: 'Munich' },
+  { name: 'Rome' }
 ];
 
 module.exports = {

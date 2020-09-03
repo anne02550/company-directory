@@ -37,12 +37,7 @@ const getJobTitles = async () => {
 };
 
 const addPersonnel = async ({departmentId, jobTitle, firstName, lastName, email}) => {
-    departmentId = parseInt(departmentId);
-    return await personnel.create({departmentId, jobTitle, firstName, lastName, email})
-    .catch(err => {
-        console.error(err);
-        throw err;
-    });
+    return await personnel.create({departmentId, jobTitle, firstName, lastName, email});
 };
 
 const deletePersonnel = async (id) => {
@@ -57,7 +52,7 @@ const editPersonnel = async ({departmentId, jobTitle, firstName, lastName, email
     employee.lastName = lastName;
     employee.jobTitle = jobTitle;
     employee.email = email;
-    employee.departmentId = parseInt(departmentId);
+    employee.departmentId = departmentId;
 
     return await employee.save();
 };

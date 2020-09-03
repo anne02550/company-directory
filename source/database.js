@@ -52,7 +52,7 @@ const editPersonnel = async ({departmentId, jobTitle, firstName, lastName, email
     employee.lastName = lastName;
     employee.jobTitle = jobTitle;
     employee.email = email;
-    employee.departmentId = departmentId;
+    employee.departmentId = parseInt(departmentId);
 
     return await employee.save();
 };

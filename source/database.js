@@ -3,8 +3,19 @@ const Sequelize = require('sequelize');
 
 const buildQuery = (queryParams) => {
     const cleanQuery = {};
-    const allowedSearchTerms = ['id', 'firstName', 'lastName', 'jobTitle', 'departmentId', 'email'];
-    for(const key of allowedSearchTerms) {
+    const allowedSearchStringTerms = ['firstName', 'lastName', 'jobTitle', 'email'];
+    const allowedSearchIntTerms = ['id', 'departmentId'];
+    
+    for(const key of allowedSearchStringTerms) {
+        value = queryParams[key];
+        if(value != null && value != '') { 
+            cleanQuery[key] = Sequelize.where(
+                Sequelize.fn('LOWER', Sequelize.col(key)
+            ), 'LIKE', `%${value.toLowerCase()}%`) // mysql doesn't support iLike
+        }
+    };
+    
+    for(const key of allowedSearchIntTerms) {
         value = queryParams[key];
         if(value != null && value != '') {
             cleanQuery[key] = value;

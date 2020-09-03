@@ -183,4 +183,4 @@
    1. Click `Delete` button on any employee card
    1. Confirm you see the `Delete Confirmation` form
    1. Click on `X` button or `Cancel` button
-   1. Confirm the`Delete Cofirmation form `is closed, you are back to result page and the employee card is still exist
+   1. Confirm the`Delete Cofirmation form `is closed, you are back to result page and the employee card still exists

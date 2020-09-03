@@ -37,6 +37,7 @@ const getJobTitles = async () => {
 };
 
 const addPersonnel = async ({departmentId, jobTitle, firstName, lastName, email}) => {
+    departmentId = parseInt(departmentId);
     return await personnel.create({departmentId, jobTitle, firstName, lastName, email});
 };
 

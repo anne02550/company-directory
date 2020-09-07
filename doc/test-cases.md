@@ -135,6 +135,13 @@
    1. Click `Add`
    1. Confirm you can see Anne Asprey in the result page 
 
+1. Add Employee form can be closed 
+   1. Login to the site (see Login)
+   1. Click `Add Employee`
+   1. Choose Department / Job title
+   1. Click `X` to close form
+   1. Confirm the form is closed and you are back to result page
+
 1. New employees can be found by search 
    1. Login to the site (see Login)
    1. Click `Find Employee`
@@ -144,13 +151,6 @@
    1. Type `anne@yahoo.com` in the `Enter Email` box
    1. Click `Find`
    1. Confirm you can see Anne Asprey in the result page 
-
-1. Add Employee form can be closed 
-   1. Login to the site (see Login)
-   1. Click `Add Employee`
-   1. Choose Department / Job title
-   1. Click `X` to close form
-   1. Confirm the form is closed and you are back to result page
 
 ###  Test if users can `Edit` Employee
 

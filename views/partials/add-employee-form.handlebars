@@ -5,7 +5,7 @@
           <button type="button" class="btn btn-primary btn-circle" data-toggle="collapse" href="#add-employee-form"><i class="glyphicon glyphicon-remove"></i></button>
         {{!--  --}}
         <div class="form-group">
-          <select class="mdb-select form-control mb-2 mr-sm-2" editable="true" name="departmentId" searchable="Search and add here..." required>
+          <select class="mdb-select form-control mb-2 mr-sm-2" id="departmentID" editable="true" name="departmentId" searchable="Search and add here..." required>
             
             <option value="" disabled selected>Choose Department</option>
             {{#each departments}}
@@ -34,7 +34,7 @@
           <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email" required>
         </div>	    
         
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Add</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" id="add-button">Add</button>
         <hr class="colorgraph">      
       </div>
     </form>

@@ -139,8 +139,49 @@ describe('Test if users can find employee', () => {
 
   it('Should allow me to close the search form ', () => {
     cy.get('#closeButton').click()
-    cy.get('#find-employee-button').should('be.hidden')
     cy.url().should('include', '/results')
+  })
+
+  // not sure:
+  it('Should allow me to clear a search', () => {
+    cy.get('#email').type('rHeFfRoN0@IBM.com')
+    cy.get('#findEmployeeButton').click()
+    cy.url().should('include', '/results')
+    cy.get('.card')
+    cy.should('contain', 'Rosana Heffronn')
+    cy.get('#clear-search').click()
+    cy.url().should('include', '/results')
+  })
+
+})
+
+
+describe('Test if users can add employee', () => {
+  beforeEach(() => {
+    cy.visit('http://company-directory.tampham.co.uk/login')
+    cy.get('#username')
+      .type('hello')
+    cy.get('#password')
+      .type('hello')
+    cy.get('.form-login-style')
+      .submit()
+    cy.url().should('include', '/results')
+    cy.get('#add-employee-button')
+      .click()
+    cy.get('#add-employee-form')
+      .should('be.visible')
+  }) 
+
+  it('Should allow me to add employee', () => {
+    cy.get('#departmentID').type('Human Resources')
+    cy.get('#jobTitle').type('COO')
+    cy.get('#firstName').type('Anne')
+    cy.get('#lastName').type('Asprey')
+    cy.get('#email').type('anne@yahoo.com')
+    cy.get('#add-button').click()
+    cy.url().should('include', '/results')
+    cy.get('.card')
+    cy.should('contain', 'Anne Asprey', 'anne@yahoo.com')
   })
 
 })

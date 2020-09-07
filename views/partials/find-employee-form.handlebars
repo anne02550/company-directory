@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-success btn-circle" data-toggle="collapse" href="#find-employee-form"><i class="glyphicon glyphicon-remove"></i></button>
     {{!--  --}}
     <div class="form-group">
-      <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" editable="true" searchable="Search and add here...">
+      <select class="mdb-select form-control mb-2 mr-sm-2" name="departmentId" id="departmentID" editable="true" searchable="Search and add here...">
         <option value="" disabled selected>Choose Department</option>
         {{#each departments}}
         <option value="{{this.id}}">{{this.name}}</option>
@@ -33,7 +33,7 @@
       <input type="email" name="email" id="email" class="form-control mb-2 mr-sm-2" placeholder="Enter Email">
     </div>	    
 
-    <button type="submit" class="btn btn-lg btn-success btn-block">Find</button>
+    <button type="submit" class="btn btn-lg btn-success btn-block" id="findEmployeeButton">Find</button>
     <hr class="colorgraph">      
   </div>
 </form>

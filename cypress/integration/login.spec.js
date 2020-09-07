@@ -60,8 +60,31 @@ describe('Test User Can Login/ Logout', () => {
       .wait(500)
     cy.get('#logOutConfirmation .logout')
       .click()
-    cy.url().should('include', '/login')
+    cy.url().should('include', '/login')  
+  })
+})
+
+describe('Test if users can find employee', () => {
+
+  beforeEach(() => {
+    cy.visit('http://company-directory.tampham.co.uk/login')
+    cy.get('#username')
+      .type('hello')
+    cy.get('#password')
+      .type('hello')
+    cy.get('.form-login-style')
+      .submit()
+    cy.url().should('include', '/results')
+  }) 
+
+  it('Should allow me to search by department', () => {
+    cy.get('#find-employee-button')
+      .click()
+    cy.get('#find-employee-form')
+      .should('be.visible')
+    cy.get('#departmentID ').type('Human Resources')
+    cy.get('#findEmployeeButton').click()
+    cy.url().should('include', '/results')
     
   })
-
 })

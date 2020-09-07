@@ -145,7 +145,6 @@
 1. New employees can be found by search 
    1. Login to the site (see Login)
    1. Click `Find Employee`
-   1. Choose Department / Job title
    1. Enter `Anne`in the `Enter Firstname` box
    1. Enter `Asprey`in the `Enter Lastname` box
    1. Type `anne@yahoo.com` in the `Enter Email` box

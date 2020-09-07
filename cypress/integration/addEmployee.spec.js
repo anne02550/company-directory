@@ -26,11 +26,29 @@ describe('Test if users can add employee', () => {
       cy.should('contain', 'Anne Asprey', 'anne@yahoo.com')
     })
    
-    it('Should allow me to close Add employee form', ()=>{
+    it('Should allow me to close Add employee form', () => {
       cy.get('#add-employee-form #departmentID').select('Human Resources')
       cy.get('#add-employee-form #jobTitle').type('COO')
       cy.get('#addEmployeeClose').click()
       cy.url().should('include', '/results')
     })
+
+    it('Should allow me to find the new added employee', () => {
+        cy.get('#addEmployeeClose').click()
+        cy.url().should('include', '/results')
+        cy.get('#find-employee-button')
+          .click()
+        cy.get('#find-employee-form')
+          .should('be.visible')
+        cy.get('#find-employee-form #firstName').type('Anne')
+        cy.get('#find-employee-form #lastName').type('Asprey')
+        cy.get('#find-employee-form #email').type('anne@yahoo.com')
+        cy.get('#find-employee-form #findEmployeeButton').click()
+        cy.url().should('include', '/results')
+        cy.get('.card')
+        cy.should('contain', 'Anne Asprey', 'anne@yahoo.com')
+      })
+
+
   })
   

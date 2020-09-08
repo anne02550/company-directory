@@ -1,6 +1,7 @@
 describe('Test if users can add-edit-delete employee', () => {
     beforeEach(() => {
-      cy.visit('http://company-directory.tampham.co.uk/login')
+      // cy.visit('http://company-directory.tampham.co.uk/login')
+      cy.visit('http://localhost:3000/login')
       cy.get('#username')
         .type('hello')
       cy.get('#password')
@@ -57,7 +58,7 @@ describe('Test if users can add-edit-delete employee', () => {
         .filter(':contains("Anne Asprey")')
         .filter(':contains("anne@yahoo.com")')
 
-        card.find('#cardFooter #edit').click()
+        card.find('#edit').first().click({force:true})
         cy.get('#update-employee-modal').should('be.visible')
         cy.get('#update-employee-modal #edit-email').clear().type('calm@yahoo.com')
         cy.get('#update-employee-modal #saveButton').click()
@@ -76,27 +77,19 @@ describe('Test if users can add-edit-delete employee', () => {
 
         const card = cy.get('.card')
         .filter(':contains("Anne Asprey")')
-        .filter(':contains("calm@yahoo.co")')
 
-        card.find('#cardFooter #edit').click()
-        cy.get('#update-employee-modal').should('be.visible')
-        cy.get('#modal-footer #cancelButton').click()
+        card.find('#edit').first().click({force:true})
+        const modal = cy.get('#update-employee-modal')
+        modal.should('be.visible')
+        modal.find('#cancelButton').click()
+
         cy.url().should('include', '/results')
 
-      })
-
-      it('Should allow me to delete employee', () => {
-        cy.get('#addEmployeeClose').click()
-        cy.url().should('include', '/results') 
-
-        const card = cy.get('.card')
+        const updatedCard = cy.get('.card')
         .filter(':contains("Anne Asprey")')
-        .filter(':contains("anne@yahoo.com")')
 
-        card.find('#cardFooter #delete').click()
-        cy.get('#confirm-delete').should('be.visible')
-        cy.get('#confirm-delete #deleteFormButton').click()
-        cy.url().should('include', '/results')
+        updatedCard.should('contain', 'Anne Asprey')
+        updatedCard.should('not.contain', 'verycalm@yahoo.co') 
       })
 
       it('Should allow me to cancel delete employee form', () => {
@@ -105,12 +98,31 @@ describe('Test if users can add-edit-delete employee', () => {
 
         const card = cy.get('.card')
         .filter(':contains("Anne Asprey")')
-        .filter(':contains("anne@yahoo.com")')
+        .filter(':contains("calm@yahoo.co")')
+        .first()
 
-        card.find('#cardFooter #delete').click()
+        card.find('#delete').first().click({force:true})
         cy.get('#confirm-delete').should('be.visible')
         cy.get('#confirm-delete #cancelDeleteForm').click()
+        
         cy.url().should('include', '/results')
+        cy.get('#results-container').should('contain', 'Anne Asprey')
+      })
+
+      it('Should allow me to delete employee', () => {
+        cy.get('#addEmployeeClose').click()
+        cy.url().should('include', '/results') 
+
+        const card = cy.get('.card')
+        .filter(':contains("Anne Asprey")')
+        .filter(':contains("calm@yahoo.co")')
+        .first()
+
+        card.find('#delete').click({force:true})
+        cy.get('#confirm-delete').should('be.visible')
+        cy.get('#confirm-delete #deleteFormButton').click()
+        cy.url().should('include', '/results')
+        cy.get('#results-container').should('not.contain', 'Anne Asprey')
       })
 
   })

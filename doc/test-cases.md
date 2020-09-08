@@ -156,7 +156,6 @@
 1. Test employees can be edited 
    1. Carry on from previous test (`Add Employee` cases)
    1. Click `Edit` button on `Anne Asprey` employee card
-   1. Choose Department / Job title
    1. Change the previous email to calm@yahoo.com
    1. Click on`Edit`
    1. Confirm `Anne Asprey`'s email has been changed to `calm@yahoo.com`
@@ -164,7 +163,6 @@
 1. Test edit form can be closed 
    1. Carry on from previous test (`Test employees can be edited`)
    1. Click `Edit` button on `Anne Asprey` employee card
-   1. Choose Department / Job title
    1. Click on`X`
    1. Confirm the form is closed and you are back to result page
 

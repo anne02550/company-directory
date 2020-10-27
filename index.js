@@ -98,12 +98,13 @@ app.get('/get-employee/:id', authenticate, async (req, res) => {
 });
 
 // Form Posts
+
 app.post('/login', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
   if(username === 'hello' && password === 'hello') {
-    //success
+    //success - setting user cookies
     req.session.user = {id: 1, userName: 'admin'};
     res.redirect('/results');
   } else {

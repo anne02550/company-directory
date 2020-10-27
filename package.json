@@ -1,38 +1,38 @@
 {
-  "name": "company-directory",
-  "version": "1.0.0",
-  "description": "An internal company directory application",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "build": "npx sequelize-cli db:migrate",
-    "seed": "npx sequelize-cli db:seed:all",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anne02550/company-directory.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anne02550/company-directory/issues"
-  },
-  "homepage": "https://github.com/anne02550/company-directory#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
-    "express-session": "^1.17.1",
-    "mysql2": "^2.1.0",
-    "pg": "^7.12.0",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.4",
-    "uuid": "^8.3.0"
-  },
-  "devDependencies": {
-    "cypress": "^5.1.0",
-    "sequelize-cli": "^6.2.0"
-  }
+    "name": "company-directory",
+    "version": "1.0.0",
+    "description": "An internal company directory application",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "build": "npx sequelize-cli db:migrate",
+        "seed": "npx sequelize-cli db:seed:all",
+        "test": "npx cypress run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anne02550/company-directory.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/anne02550/company-directory/issues"
+    },
+    "homepage": "https://github.com/anne02550/company-directory#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.5",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.1.0",
+        "express-session": "^1.17.1",
+        "mysql2": "^2.1.0",
+        "pg": "^7.12.0",
+        "pg-hstore": "^2.3.3",
+        "sequelize": "^6.3.4",
+        "uuid": "^8.3.0"
+    },
+    "devDependencies": {
+        "cypress": "^5.1.0",
+        "sequelize-cli": "^6.2.0"
+    }
 }
